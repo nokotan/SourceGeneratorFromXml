@@ -1,0 +1,10 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <UsingTask TaskName="GenerateSourceFromXml" AssemblyFile="$(MSBuildThisFileDirectory)../Emscripten.Build.Definition.CodeGen/bin/Debug/Emscripten.Build.Definition.CodeGen.dll" />
+
+    <Target Name="GenerateSourceFromXml" Condition="'@(ToolSetDefine)' != ''" BeforeTargets="CoreCompile">
+        <GenerateSourceFromXml
+            Source="@(ToolSetDefine)"
+        />
+        <Message Text="Done!" Importance="High" />
+    </Target>
+</Project>
